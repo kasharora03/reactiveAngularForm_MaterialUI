@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": "0d59",
+      "name": "BHARAT",
+      "remarks": "REMARKS FROM BHARAT",
+      "field": "btech",
+      "dob": "2002-03-20T18:30:00.000Z",
+      "yearofstudy": "Fourth"
+    },
+    {
+      "name": "JOY",
+      "remarks": "REMARKS FROM JOY",
+      "field": "bca",
+      "dob": "2005-06-29T18:30:00.000Z",
+      "yearofstudy": "First",
+      "id": "1dea"
+    }
+  ]
+}

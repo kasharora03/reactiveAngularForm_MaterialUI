@@ -1,0 +1,73 @@
+<div class="dialog-content">
+  <h3 mat-dialog-title>Add Student Details</h3>
+  <div mat-dialog-content style="margin-top: 10px;">
+    <div class="input-container" style="margin-top: 10px;">
+      <form [formGroup]="productForm">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Student Name</mat-label>
+          <input formControlName="name" matInput placeholder="Student Name" />
+        </mat-form-field>
+        <p *ngIf="productForm.get('name')?.invalid && (productForm.get('name')?.touched || productForm.get('name')?.dirty)">
+          Name is required and must be at least 2 characters long.
+        </p>
+
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Field of Study</mat-label>
+          <mat-select formControlName="field">
+            <mat-option value="bca">BCA</mat-option>
+            <mat-option value="bba">BBA</mat-option>
+            <mat-option value="btech">BTech</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p *ngIf="productForm.get('field')?.invalid && (productForm.get('field')?.touched || productForm.get('field')?.dirty)">
+          Please select a field.
+        </p>
+
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="YYYY-MM-DD" />
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <p *ngIf="productForm.get('dob')?.invalid && (productForm.get('dob')?.touched || productForm.get('dob')?.dirty)">
+          Please select a date.
+        </p>
+
+        <label>Year of Study</label><br/>
+        <mat-radio-group formControlName="yearofstudy">
+          <mat-radio-button *ngFor="let option of optionList" [value]="option">
+            {{ option }}
+          </mat-radio-button>
+        </mat-radio-group>
+        <p *ngIf="productForm.get('yearofstudy')?.invalid && (productForm.get('yearofstudy')?.touched || productForm.get('yearofstudy')?.dirty)">
+          Please select an option.
+        </p>
+
+        <!-- <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Product Price</mat-label>
+          <input type="number" matInput formControlName="price" placeholder="Product Price" />
+        </mat-form-field>
+        <p *ngIf="productForm.get('price')?.invalid && (productForm.get('price')?.touched || productForm.get('price')?.dirty)">
+          Price is required.
+        </p> -->
+
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Remarks</mat-label>
+          <textarea matInput formControlName="remarks"></textarea>
+        </mat-form-field>
+        <p *ngIf="productForm.get('remarks')?.invalid && (productForm.get('remarks')?.touched || productForm.get('remarks')?.dirty)">
+          remarks is required and must be at least 10 characters long.
+        </p>
+      </form>
+    </div>
+    <div mat-dialog-actions class="gap-4">
+      <button mat-flat-button color="warn" mat-dialog-close>
+        Close
+      </button>
+      <button mat-flat-button color="primary" (click)="addProduct()">
+        {{actionBtn}}
+      </button>
+    </div>
+    
+  </div>
+</div>
